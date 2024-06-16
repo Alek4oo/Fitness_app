@@ -1,19 +1,15 @@
 {% extends 'base.html '%}
 
-{% block head %}
-
-{% endblock %}
-
 {% block body %}
 <h1>LOG IN</h1>
 <br>
 
 <div class="wrapper">
     
-    <form action="/" method="post">
+    <form method="POST" action = "/login">
         
-        <label for="username">username:</label>
-        <input type="text" id="username"required>
+        <label for="email">email:</label>
+        <input type="text" id="email"required>
 
             <br><br><br>
 
