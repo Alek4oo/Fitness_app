@@ -5,5 +5,29 @@
 {% endblock %}
 
 {% block body %}
-<h1>Test</h1>
+<h1>LOG IN</h1>
+<br>
+
+<div class="wrapper">
+    
+    <form action="/" method="post">
+        
+        <label for="username">username:</label>
+        <input type="text" id="username"required>
+
+            <br><br><br>
+
+        <label for="password">password:</label>
+        <input type="password" id="password" required maxlength="12" minlength="6">
+            
+            <br><br>
+
+        <input class="button-6" role="button" type="reset">
+        <a href="2.html" target="_blank">
+            <button class="button-6" role="button">Next</button>
+        </a>
+        
+    </form>
+
+</div>
 {% endblock %}

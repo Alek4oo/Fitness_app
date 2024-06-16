@@ -27,9 +27,110 @@ ul {
   }
 
   li a:hover {
-    background-color: #111;
+    background-color: rgb(209, 124, 13);
   }
 
   .navbar{
     width: 1900px;
   }
+
+  h1{
+    font-size: 6em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(209, 124, 13);
+    margin-left: 41%;
+    margin-top: 5%;
+
+}
+
+body{
+    background-color: black;
+    background-image: url(artistic-blurry-colorful-wallpaper-background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+label{
+    color: rgb(209, 124, 13);
+    font-size: 20px;
+    font-style: bold;
+}
+
+input{
+    border: 3px solid;
+    border-radius: 5px;
+    border-color:rgb(209, 124, 13) ;
+    width: 180px;
+}
+
+button{
+    border: 3px solid;
+    border-radius: 10px;
+    border-color:rgb(209, 124, 13) ;
+}
+
+.wrapper{
+    margin-left: 44%;
+    margin-top: 2%;
+}
+
+div.wrapper{
+    border: 3px solid;
+    margin-left: 43%;
+    border-radius: 10px;
+    border-color: rgb(209, 124, 13);
+    width: 200px;
+    padding: 1cm;
+    box-shadow: rgba(190, 20, 20, 0.56) 0px 22px 70px 4px;
+}
+
+
+.button-6 {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box; 
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 3px;
+  margin-top: 5px;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 50px;
+  height: 50px;
+}
+
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+  transform: translateY(-1px);
+}
+
+.button-6:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
