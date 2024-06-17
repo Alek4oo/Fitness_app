@@ -6,13 +6,10 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('app.config.Config')
+    app.config['SECRET_KEY'] = 'your_secret_key'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///fitness.db'
 
     db.init_app(app)
-
-    with app.app_context():
-        from . import routes
-        db.create_all()
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
@@ -25,7 +22,7 @@ def create_app():
         return User.query.get(int(user_id))
 
     from .auth import auth as auth_blueprint
-    app.register_blueprint(auth_blueprint)
+    app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
     from .routes import main as main_blueprint
     app.register_blueprint(main_blueprint)

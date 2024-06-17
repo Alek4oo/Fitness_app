@@ -1,0 +1,30 @@
+{% extends 'base.html% }
+{% block body %}
+<h1>Add Workout</h1>
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.type.label }}<br>
+        {{ form.type(size=32) }}<br>
+        {% for error in form.type.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.duration.label }}<br>
+        {{ form.duration() }}<br>
+        {% for error in form.duration.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.calories_burned.label }}<br>
+        {{ form.calories_burned() }}<br>
+        {% for error in form.calories_burned.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+<a href="{{ url_for('index') }}">Back to Home</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+    <h1>Workout Details</h1>
+    <ul class = "workout_details">
+        <li><strong>Workout ID:</strong> {{ workout.id }}</li>
+        <li><strong>User ID:</strong> {{ workout.user_id }}</li>
+        <li><strong>Type:</strong> {{ workout.type }}</li>
+        <li><strong>Duration:</strong> {{ workout.duration }} minutes</li>
+        <li><strong>Date:</strong> {{ workout.date }}</li>
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+    {% endblock %}
+
