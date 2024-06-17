@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "{{ url_for('static', filename='style.css') }}">
-    <div class = "navbar">
-     <ul>
-         <li><a href="/login">Log in</a></li>
-         <li><a href="/signup">Sign up</a></li>
-        </ul>
-    </div>
-    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    {% block body %}
-
-    {% endblock %}
+    <div class = "navbar">
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('main.index') }}">Home</a></li>
+            {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.home') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                <li><a href="{{ url_for('auth.signup') }}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+    {% block content %}{% endblock %}
 </body>
 </html>

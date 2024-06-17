@@ -1,29 +1,5 @@
-{% extends 'base.html '%}
-
+{% extends 'base.html' %}
 {% block body %}
-<h1>LOG IN</h1>
-<br>
-
-<div class="wrapper">
-    
-    <form method="POST" action = "/login">
-        
-        <label for="email">email:</label>
-        <input type="text" id="email"required>
-
-            <br><br><br>
-
-        <label for="password">password:</label>
-        <input type="password" id="password" required maxlength="12" minlength="6">
-            
-            <br><br>
-
-        <input class="button-6" role="button" type="reset">
-        <a href="2.html" target="_blank">
-            <button class="button-6" role="button">Next</button>
-        </a>
-        
-    </form>
-
-</div>
+<h1>Welcome to the Fitness Tracker</h1>
+<p>Please <a href="{{ url_for('auth.login') }}">login</a> or <a href="{{ url_for('auth.signup') }}">sign up</a>.</p>
 {% endblock %}
