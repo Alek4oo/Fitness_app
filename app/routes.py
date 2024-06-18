@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, jsonify, redirect, url_for
+from flask import Blueprint, render_template, request, jsonify, redirect, url_for, flash
 from flask_login import login_required, current_user
 from .models import Workout, db
 from .forms import WorkoutForm
@@ -52,3 +52,16 @@ def manage_workout(workout_id):
         db.session.delete(workout)
         db.session.commit()
         return '', 204
+    
+@main.route('/delete_workout/<int:workout_id>', methods=['POST'])
+@login_required
+def delete_workout(workout_id):
+    workout = Workout.query.get_or_404(workout_id)
+    if workout.user_id != current_user.id:
+        flash('You do not have permission to delete this workout.', 'error')
+        return redirect(url_for('main.home'))
+    
+    db.session.delete(workout)
+    db.session.commit()
+    flash('Workout deleted successfully!', 'success')
+    return redirect(url_for('main.home'))

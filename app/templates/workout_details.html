@@ -3,8 +3,8 @@
 {% block title %}Manage Workouts{% endblock %}
 
 {% block content %}
-    <h1>Add a New Workout</h1>
-    <form method="POST">
+    <h1 class="add">Add a New Workout</h1>
+    <form class="add" method="POST">
         {{ form.hidden_tag() }}
         <p>
             {{ form.type.label }}<br>

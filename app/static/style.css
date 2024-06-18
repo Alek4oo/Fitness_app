@@ -42,8 +42,16 @@ ul {
     font-size: 6em;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: rgb(209, 124, 13);
-    margin-left: 41%;
+    margin-left: 42%;
     margin-top: 5%;
+}
+
+h1.signup{
+  font-size: 6em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(209, 124, 13);
+  margin-left: 41%;
+  margin-top: 5%;
 }
 
 body{
@@ -66,12 +74,6 @@ input{
     border-radius: 5px;
     border-color:rgb(209, 124, 13) ;
     width: 180px;
-}
-
-button{
-    border: 3px solid;
-    border-radius: 10px;
-    border-color:rgb(209, 124, 13) ;
 }
 
 .wrapper{
@@ -138,12 +140,60 @@ div.wrapper{
   transform: translateY(0);
 }
 
-.workout_details{
-  border: 2cm black;
+
+
+h1.workouts{
+  color: rgb(209, 124, 13);
+  margin-left: 39%;
+  font-size: 2cm;
 }
 
-.workouts{
-  color: #946000;
-  margin-left: 40%;
-  font-size: 2cm;
+ul.workouts{
+  font-size: 0.5cm;
+  background-color: #000000;
+  margin-left: 35%;
+}
+
+li.workouts{
+  color: aliceblue;
+
+}
+
+.wrapper-home{
+  border: 0.1cm solid aliceblue;
+  margin-left: 450px;
+  margin-right: 450px;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.link{
+  color: aliceblue;
+  margin: 20px;
+  margin-bottom: 30px;
+}
+
+form.add{
+  margin-left: 46%;
+  margin-top: 100px;
+}
+
+h1.add{
+  color: rgb(209, 124, 13);
+  margin-left: 39%;
+  font-size: 1.5cm;
+  margin-top: 100px;
+}
+
+.button5 {
+  background-color: aliceblue;
+  color: black;
+  border: 3px solid #555555;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.button5:hover {
+  background-color: rgb(209, 124, 13);
+  color: white;
 }
