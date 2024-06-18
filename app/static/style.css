@@ -2,10 +2,6 @@ h1{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-body{
-    background-color: #220d0da4;
-}
-
 p{
   color: aliceblue;
 }
@@ -55,8 +51,8 @@ h1.signup{
 }
 
 body{
-    background-color: black;
-    background-image: url(artistic-blurry-colorful-wallpaper-background.jpg);
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0,0,0,1) 66%, rgba(105,66,3,1) 100%);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -144,7 +140,7 @@ div.wrapper{
 
 h1.workouts{
   color: rgb(209, 124, 13);
-  margin-left: 39%;
+  margin-left: 38%;
   font-size: 2cm;
 }
 
@@ -196,4 +192,10 @@ h1.add{
 .button5:hover {
   background-color: rgb(209, 124, 13);
   color: white;
+}
+
+.flash{
+  color: aliceblue;
+  font-size: 0.5cm;
+  margin: 20px;
 }
