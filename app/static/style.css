@@ -38,13 +38,12 @@ ul {
     width: 1900px;
   }
 
-  h1{
+  h1.log{
     font-size: 6em;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: rgb(209, 124, 13);
     margin-left: 41%;
     margin-top: 5%;
-
 }
 
 body{
@@ -141,4 +140,10 @@ div.wrapper{
 
 .workout_details{
   border: 2cm black;
+}
+
+.workouts{
+  color: #946000;
+  margin-left: 40%;
+  font-size: 2cm;
 }

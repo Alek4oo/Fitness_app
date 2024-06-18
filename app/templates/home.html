@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1 class="workouts">Your Workouts</h1>
+    <ul>
+        {% for workout in workouts %}
+            <li>{{ workout.type }} for {{ workout.duration }} minutes, burned {{ workout.calories_burned }} calories.</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('main.manage_workouts') }}">Add a new workout</a>
+{% endblock %}

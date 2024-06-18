@@ -1,13 +1,32 @@
-{% extends 'base.html' %}
-{% block body %}
-    <h1>Workout Details</h1>
-    <ul class = "workout_details">
-        <li><strong>Workout ID:</strong> {{ workout.id }}</li>
-        <li><strong>User ID:</strong> {{ workout.user_id }}</li>
-        <li><strong>Type:</strong> {{ workout.type }}</li>
-        <li><strong>Duration:</strong> {{ workout.duration }} minutes</li>
-        <li><strong>Date:</strong> {{ workout.date }}</li>
-    </ul>
-    <a href="{{ url_for('index') }}">Back to Home</a>
-    {% endblock %}
+{% extends "base.html" %}
 
+{% block title %}Manage Workouts{% endblock %}
+
+{% block content %}
+    <h1>Add a New Workout</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.type.label }}<br>
+            {{ form.type(size=32) }}<br>
+            {% for error in form.type.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.duration.label }}<br>
+            {{ form.duration(size=32) }}<br>
+            {% for error in form.duration.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.calories_burned.label }}<br>
+            {{ form.calories_burned(size=32) }}<br>
+            {% for error in form.calories_burned.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

@@ -9,9 +9,9 @@
     <div class = "navbar">
     <nav>
         <ul>
-            <li><a href="{{ url_for('main.index') }}">Home</a></li>
+            <li><a href="{{ url_for('main.home') }}">Home</a></li>
             {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('main.home') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('main.manage_workouts') }}">Add</a></li>
                 <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
             {% else %}
                 <li><a href="{{ url_for('auth.login') }}">Login</a></li>

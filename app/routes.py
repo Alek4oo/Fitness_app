@@ -14,7 +14,7 @@ def index():
 @login_required
 def home():
     workouts = current_user.workouts
-    return render_template('workout_details.html', workouts=workouts, user=current_user)
+    return render_template('home.html', workouts=workouts, user=current_user)
 
 @main.route('/workouts', methods=['GET', 'POST'])
 @login_required
@@ -30,7 +30,7 @@ def manage_workouts():
         db.session.add(new_workout)
         db.session.commit()
         return redirect(url_for('main.home'))
-    return render_template('manage_workouts.html', form=form)
+    return render_template('workout_details.html', form=form)
 
 @main.route('/workouts/<int:workout_id>', methods=['GET', 'PUT', 'PATCH', 'DELETE'])
 @login_required
