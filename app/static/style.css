@@ -1,3 +1,4 @@
+
 h1{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -31,7 +32,7 @@ ul {
   }
 
   .navbar{
-    width: 1900px;
+    width: 100%;
   }
 
   h1.log{
@@ -50,13 +51,14 @@ h1.signup{
   margin-top: 5%;
 }
 
+h1.manage{
+  color: rgb(209, 124, 13);
+  font-size: 2cm;
+  margin-left: 34%;
+}
+
 body{
-  background: rgb(0,0,0);
-  background: radial-gradient(circle, rgba(0,0,0,1) 66%, rgba(105,66,3,1) 100%);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
+    background-color: #e7dede;
 }
 
 label{
@@ -65,12 +67,13 @@ label{
     font-style: bold;
 }
 
-input{
+input{  
     border: 3px solid;
     border-radius: 5px;
     border-color:rgb(209, 124, 13) ;
     width: 180px;
 }
+
 
 .wrapper{
     margin-left: 44%;
@@ -86,6 +89,18 @@ div.wrapper{
     padding: 1cm;
     box-shadow: rgba(190, 20, 20, 0.56) 0px 22px 70px 4px;
 }
+
+div.wrapper-manage{
+  border: 3px solid;
+  margin-left: 40%;
+  border-radius: 10px;
+  border-color: rgb(209, 124, 13);
+  width: 300px;
+  height: 500px;
+  padding: 40px;
+  box-shadow: rgba(190, 20, 20, 0.56) 0px 22px 70px 4px;
+  background-color: #332f2f;
+} 
 
 
 .button-6 {

@@ -24,34 +24,47 @@ def manage_workouts():
         new_workout = Workout(
             type=form.type.data,
             duration=form.duration.data,
-            calories_burned=form.calories_burned.data,
-            user_id=current_user.id
+            user_id=current_user.id  # Auto-calculates calories
         )
-        db.session.add(new_workout)
-        db.session.commit()
+        try:
+            db.session.add(new_workout)
+            db.session.commit()
+            flash('Workout added successfully!', 'success')
+        except Exception as e:
+            flash(f"Error adding workout: {e}", 'error')
         return redirect(url_for('main.home'))
+    
     return render_template('workout_details.html', form=form)
+
 
 @main.route('/workouts/<int:workout_id>', methods=['GET', 'PUT', 'PATCH', 'DELETE'])
 @login_required
 def manage_workout(workout_id):
     workout = Workout.query.get_or_404(workout_id)
+    
     if request.method == 'GET':
         return jsonify(workout.to_dict())
-    elif request.method == 'PUT' or request.method == 'PATCH':
+    
+    # For PUT and PATCH, only allow updates to type and duration (calories_burned is auto-calculated)
+    elif request.method in ['PUT', 'PATCH']:
         data = request.get_json()
+        
         if 'type' in data:
             workout.type = data['type']
         if 'duration' in data:
             workout.duration = data['duration']
-        if 'calories_burned' in data:
-            workout.calories_burned = data['calories_burned']
+        
+        # Since calories_burned is auto-calculated, no need to update it directly
+        workout.calories_burned = workout.calculate_calories()  # Recalculate calories based on new data
+        
         db.session.commit()
         return jsonify(workout.to_dict()), 200
+    
     elif request.method == 'DELETE':
         db.session.delete(workout)
         db.session.commit()
         return '', 204
+
     
 @main.route('/delete_workout/<int:workout_id>', methods=['POST'])
 @login_required
@@ -61,7 +74,11 @@ def delete_workout(workout_id):
         flash('You do not have permission to delete this workout.', 'error')
         return redirect(url_for('main.home'))
     
-    db.session.delete(workout)
-    db.session.commit()
-    flash('Workout deleted successfully!', 'success')
+    try:
+        db.session.delete(workout)
+        db.session.commit()
+        flash('Workout deleted successfully!', 'success')
+    except Exception as e:
+        flash(f"Error deleting workout: {e}", 'error')
+    
     return redirect(url_for('main.home'))

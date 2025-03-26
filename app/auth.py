@@ -41,22 +41,31 @@ def signup():
         username = request.form.get('username')
         password = request.form.get('password')
 
-        user = User.query.filter_by(email=email).first()
-        if user:
+        # Check if email or username already exist
+        user_by_email = User.query.filter_by(email=email).first()
+        user_by_username = User.query.filter_by(username=username).first()
+
+        if user_by_email:
             flash('Email already exists.', category='error')
+        elif user_by_username:
+            flash('Username already taken. Choose another one.', category='error')
         elif len(email) < 4:
             flash('Email must be greater than 3 characters.', category='error')
-        elif len(username)==0:
+        elif len(username) == 0:
             flash('Username must be greater than 1 character.', category='error')
         elif len(password) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
-
             new_user = User(email=email, username=username, password=generate_password_hash(password, method='pbkdf2:sha256'))
-            db.session.add(new_user)
-            db.session.commit()
-            login_user(new_user, remember=True)
-            flash('Account created!', category='success')
-            return redirect(url_for('main.home'))
+            try:
+                db.session.add(new_user)
+                db.session.commit()
+                login_user(new_user, remember=True)
+                flash('Account created!', category='success')
+                return redirect(url_for('main.home'))  # Fix this redirect
+            except IntegrityError:
+                db.session.rollback()
+                flash('An error occurred. Please try again.', category='error')
 
     return render_template("signup.html", user=current_user)
+

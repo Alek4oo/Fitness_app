@@ -3,30 +3,30 @@
 {% block title %}Manage Workouts{% endblock %}
 
 {% block content %}
-    <h1 class="add">Add a New Workout</h1>
-    <form class="add" method="POST">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.type.label }}<br>
-            {{ form.type(size=32) }}<br>
-            {% for error in form.type.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.duration.label }}<br>
-            {{ form.duration(size=32) }}<br>
-            {% for error in form.duration.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.calories_burned.label }}<br>
-            {{ form.calories_burned(size=32) }}<br>
-            {% for error in form.calories_burned.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
+<h1  class="manage">Add a New Workout</h1>
+
+<div class="wrapper-manage">
+<form class="do" method="POST">
+    <label for="type">Workout Type:</label>
+    <select name="type" required>
+        <option value="Running">Running</option>
+        <option value="Cycling">Cycling</option>
+        <option value="Swimming">Swimming</option>
+        <option value="Walking">Walking</option>
+        <option value="Strength Training">Strength Training</option>
+        <option value="Yoga">Yoga</option>
+    </select>
+    <br>
+    <br>
+    <br>    
+    <br>
+    <label for="duration">Duration (minutes):</label>
+    <input type="number" name="duration" required min="1">
+
+    <button type="submit">Add Workout</button>
+</form>
+<a href="{{ url_for('main.home') }}" class="link">Back to Dashboard</a>
+</div>
+
+
 {% endblock %}
